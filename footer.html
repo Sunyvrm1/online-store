@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+      .footer {
+        background-color: #111;
+        padding: 3rem;
+        color: #fff;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 13px;
+        gap: 30px;
+      }
+      .footHeading {
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+      .footPara {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footIcon {
+        display: flex;
+        gap: 10px;
+      }
+      .footIcon i {
+        color: #fff;
+        font-size: 1.5em;
+      }
+      .payment i {
+        font-size: 2rem;
+      }
+      .payment {
+        display: flex;
+        gap: 10px;
+      }
+      @media (max-width: 960px) {
+        .footer {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 3rem 20px;
+          row-gap: 40px;
+        }
+      }
+      /* @media (max-width: 600px) {
+        .footer {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="footer">
+      <div class="footerContent">
+        <p class="footHeading">ONLINE SHOPPING</p>
+        <div class="footPara">
+          <p>Men</p>
+          <p>Women</p>
+          <p>Electronics</p>
+          <p>Jewellery</p>
+        </div>
+      </div>
+      <div class="footerContent">
+        <p class="footHeading">CUSTOMER SERVICES</p>
+        <div class="footPara">
+          <p>Profile</p>
+          <p>Wishlist</p>
+          <p>Cart</p>
+        </div>
+      </div>
+      <div class="footerContent">
+        <p class="footHeading">KEEP IN TOUCH</p>
+        <div class="footIcon">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-square-instagram"></i>
+        </div>
+      </div>
+
+      <div class="footerContent">
+        <div class="payment">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/9ba24a9f81.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

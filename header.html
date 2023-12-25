@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+      .header {
+        width: 100%;
+        display: flex;
+        padding: 20px 3rem;
+        justify-content: space-between;
+        box-shadow: 0px 0px 15px rgba(17, 17, 17, 0.1);
+        background-color: #fff;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+      }
+      .navAndLogo {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+      .logoPara {
+        font-size: 3.5rem;
+        line-height: 2.6rem;
+        font-weight: 700;
+        color: #2a55e5;
+      }
+      .logoPara a {
+        text-decoration: none;
+        color: #2a55e5;
+      }
+      nav ul {
+        display: flex;
+        gap: 40px;
+      }
+      nav ul li {
+        list-style: none;
+      }
+      nav ul li a {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #111;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .searchNav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .searchNav i {
+        color: #2a55e5;
+      }
+      .searchBar {
+        background-color: #f5f5f6;
+        padding: 10px 20px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        border-radius: 5px;
+      }
+      .searchBar i {
+        color: #777;
+      }
+      #searchInput {
+        background: transparent;
+        border: none;
+        outline: none;
+      }
+      .navIconMenu {
+        width: 1.5em;
+        height: 1.5em;
+        color: var(--color1);
+        border: 2px solid var(--color1);
+      }
+      .navIconMenu[name="close-outline"] {
+        display: none;
+      }
+      .navIcon {
+        display: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      @media (max-width: 1024px) {
+        .header {
+          padding: 20px;
+        }
+        .navIcon {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+        .active nav {
+          transform: translateX(0%);
+        }
+        .active .navIcon .navIconMenu[name="close-outline"] {
+          display: block;
+        }
+        .active .navIcon .navIconMenu[name="menu-outline"] {
+          display: none;
+        }
+        nav {
+          background-color: #fff;
+          position: absolute;
+          width: 180px;
+          height: 100vh;
+          top: 100%;
+          left: 0;
+          padding: 20px;
+          box-shadow: 0px 20px 15px rgba(17, 17, 17, 0.1);
+          transform: translateX(-100%);
+          transition: transform 0.3s ease-out;
+          z-index: 10;
+        }
+        .navAndLogo {
+          gap: 20px;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+      @media (max-width: 600px) {
+        .searchNav {
+          gap: 20px;
+        }
+        .searchBar {
+          padding: 10px;
+        }
+        #searchInput {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #f5f5f6;
+          top: 100px;
+          width: calc(100% - 40px);
+          padding: 10px;
+          display: none;
+          z-index: 5;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+        .activeSearch {
+          display: block !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="navAndLogo">
+        <div class="navIcon">
+          <ion-icon name="menu-outline" class="navIconMenu"></ion-icon>
+          <ion-icon name="close-outline" class="navIconMenu"></ion-icon>
+        </div>
+        <p class="logoPara"><a href="/index.html">S</a></p>
+        <nav>
+          <ul>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Jewellery</a></li>
+            <li><a href="#">Electronics</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="searchNav">
+        <div class="searchBar">
+          <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products"
+          />
+        </div>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/9ba24a9f81.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      const header = document.querySelector(".header");
+      const navIcon = document.querySelector(".navIcon");
+      navIcon.addEventListener("click", () => {
+        header.classList.toggle("active");
+      });
+
+      const searchIcon = document.getElementById("searchIcon");
+      const searchInput = document.getElementById("searchInput");
+
+      searchIcon.addEventListener("click", (event) => {
+        searchInput.classList.toggle("activeSearch");
+      });
+    </script>
+  </body>
+</html>
