@@ -29,12 +29,13 @@ fetch("https://fakestoreapi.com/products")
 const addToWishlist = document.getElementById("addToWishlist");
 const iconColor = document.getElementById("iconColor");
 let clicked = false;
+
 addToWishlist.addEventListener("click", () => {
   const btnClick =
     addToWishlist.parentElement.parentElement.previousElementSibling.getAttribute(
       "alt"
     );
-  iconColor.classList.toggle("iconColor");
+  iconColor.classList.toggle("iconColorActive");
   if (!clicked) {
     clicked = true;
     localStorage.setItem("btnClick", btnClick);

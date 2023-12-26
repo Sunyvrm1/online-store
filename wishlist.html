@@ -3,12 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Wishlist | Online shopping</title>
+    <link rel="stylesheet" href="/dist/css/wishlist.css" />
   </head>
   <body>
-    <script>
-      const storeId1 = localStorage.getItem("btnClick");
-      console.log(storeId1);
-    </script>
+    <header></header>
+
+    <h1>My Wishlist</h1>
+
+    <section class="wishlistContainer">
+      <div class="wishlist">
+        <div class="product">
+          <img src="/dist/images/product.jpg" alt="" />
+          <div class="productInfo">
+            <p class="productTitle">
+              WD 4TB Gaming Drive Works with Playstation 4 Portable External
+              Hard Drive
+            </p>
+            <p class="productPrice">$ 114</p>
+          </div>
+        </div>
+        <div class="actionButton">
+          <button>MOVE TO BAG</button>
+          <button>Delete</button>
+        </div>
+      </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="/dist/js/header.js"></script>
+    <script src="/dist/js/wishlist.js"></script>
+    <script src="/dist/js/footer.js"></script>
+    <script
+      src="https://kit.fontawesome.com/9ba24a9f81.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
