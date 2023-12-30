@@ -55,8 +55,6 @@ section {
     margin: 40px 20px;
   }
   .product img {
-    object-fit: contain;
-    display: flex;
-    cursor: pointer;
+    width: 100%;
   }
 }
