@@ -21,19 +21,57 @@ h1 {
 }
 .wishlist {
   background-color: #fff;
-  padding: 20px;
   border: 1px solid #ccc;
+  position: relative;
+}
+.product {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
 }
 .product img {
-  width: 100%;
+  object-fit: contain;
+  max-height: 200px;
+  display: flex;
 }
 .productTitle {
   font-size: 16px;
-  margin: 10px 0;
   text-align: center;
 }
 .productPrice {
   font-size: 16px;
+  margin-top: 10px;
   font-weight: 700;
   text-align: center;
+}
+.actionButton {
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+}
+#moveToBag {
+  border: none;
+  font-weight: 700;
+  color: #2a55e5;
+  padding: 0 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+#delete {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  color: #fff;
+  right: 10px;
+  border: 1px solid #2a55e5;
+  border-radius: 50%;
+  background-color: #2a55e5;
+  cursor: pointer;
+}
+.vanishItem {
+  display: none;
 }

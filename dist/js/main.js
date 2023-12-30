@@ -113,7 +113,6 @@ function displayCategoryImages(categoryArray, targetElement) {
 
 function imageClick(event) {
   const clickedId = event.target.getAttribute("alt");
-  //   console.log("Clicked ID:", clickedId);
   localStorage.setItem("clickedId", clickedId);
   window.location.href = "product.html";
 }
