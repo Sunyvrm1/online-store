@@ -42,3 +42,21 @@ section {
   font-size: 16px;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .productCont {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  section {
+    padding: 0 20px 40px 20px;
+  }
+  h1 {
+    margin: 40px 20px;
+  }
+  .product img {
+    object-fit: contain;
+    display: flex;
+    cursor: pointer;
+  }
+}
