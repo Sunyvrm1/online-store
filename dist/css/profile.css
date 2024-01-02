@@ -15,43 +15,76 @@ h1 {
   margin: 40px;
 }
 section {
-    padding: 0 40px 40px;
-  }
-  .profile{
-    padding: 20px;
-    background-color: #fff;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-  }
-  /* .active{
-    background-color: #2a55e5;
-    color: #fff;
-  } */
-  .profileCircle{
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    border: 1px solid #2a55e5;
-    align-items: center;
-    border-radius: 50%;
-    color: #2a55e5;
-    font-weight: 600;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: all 0.2s linear;
-  }
-  .profileCircle:hover{
-    background-color: #2a55e5;
-    color: #fff;
-  }
-.para1{
-    font-size: 20px;
-    font-weight: 600;
+  padding: 0 40px 40px;
 }
-.profileName{
-    font-size: 14px;
+.profile {
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+/* .profileCircle:first-child {
+  background-color: #2a55e5;
+  color: #fff;
+} */
+.active {
+  background-color: #2a55e5 !important;
+  color: #fff !important;
+}
+.profCircleCont {
+  display: flex;
+  gap: 15px;
+}
+.profileCircle {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #2a55e5;
+  align-items: center;
+  border-radius: 50%;
+  color: #2a55e5;
+  font-weight: 600;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  text-transform: uppercase;
+}
+.profileCircle:hover {
+  background-color: #2a55e5;
+  color: #fff;
+}
+.para1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.profileName {
+  font-size: 14px;
+}
+.profile1 {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+.profileInfo {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.flex p {
+  width: 50%;
+}
+.profileInfo1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#name {
+  text-transform: capitalize;
 }
