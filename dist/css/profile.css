@@ -25,10 +25,6 @@ section {
   align-items: center;
   border-bottom: 1px solid #ccc;
 }
-/* .profileCircle:first-child {
-  background-color: #2a55e5;
-  color: #fff;
-} */
 .active {
   background-color: #2a55e5 !important;
   color: #fff !important;
