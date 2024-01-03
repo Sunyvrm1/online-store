@@ -43,7 +43,7 @@ section {
   text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .productCont {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
