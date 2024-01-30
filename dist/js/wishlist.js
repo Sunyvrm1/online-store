@@ -1,25 +1,41 @@
-const storeId1 = localStorage.getItem("btnClick");
+const storeId1 = JSON.parse(localStorage.getItem("btnClick"));
 console.log(storeId1);
 
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((data) => {
-    const matchingId = data.find((item) => item.id.toString() === storeId1);
-    if (matchingId) {
-      console.log(matchingId);
-      const productTitle = document.querySelector(".productTitle");
-      const productPrice = document.querySelector(".productPrice");
-      const productImg = document.getElementById("productImg");
+    const matchingProducts = data.filter((item) =>
+      storeId1.includes(item.id.toString())
+    );
+    const wishlistContainer = document.querySelector(".wishlistContainer");
+    matchingProducts.forEach((products) => {
+      wishlistContainer.insertAdjacentHTML(
+        "beforeend",
+        `<div class="wishlist">
+          <div class="product">
+            <img src="${products.image}" alt="${products.id}" id="productImg" />
+            <div class="productInfo">
+              <p class="productTitle">${products.title}</p>
+              <p class="productPrice">$${products.price}</p>
+            </div>
+          </div>
+          <div class="actionButton">
+            <button id="moveToBag">MOVE TO BAG</button>
+            <button id="delete" class="deleteProd"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>`
+      );
+    });
+    console.log(matchingProducts);
 
-      productTitle.innerHTML = matchingId.title;
-      productPrice.innerHTML = `$ ${matchingId.price}`;
-      productImg.src = matchingId.image;
-    }
+    const deleteItem = document.querySelectorAll(".deleteProd");
+    deleteItem.forEach((del) => {
+      del.addEventListener("click", () => {
+        const delId =
+          del.parentElement.previousElementSibling.firstElementChild.getAttribute(
+            "alt"
+          );
+        console.log(delId);
+      });
+    });
   });
-
-const wishlist = document.querySelector(".wishlist");
-const deleteItem = document.getElementById("delete");
-
-deleteItem.addEventListener("click", () => {
-  wishlist.classList.add("vanishItem");
-});

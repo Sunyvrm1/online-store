@@ -18,11 +18,15 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: 0 40px 40px;
+  gap: 20px;
 }
 .wishlist {
   background-color: #fff;
   border: 1px solid #ccc;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .product {
   display: flex;

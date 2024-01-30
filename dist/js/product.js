@@ -28,7 +28,7 @@ fetch("https://fakestoreapi.com/products")
 
 const addToWishlist = document.getElementById("addToWishlist");
 const iconColor = document.getElementById("iconColor");
-let clicked = false;
+let newArr = [];
 
 addToWishlist.addEventListener("click", () => {
   const btnClick =
@@ -36,11 +36,16 @@ addToWishlist.addEventListener("click", () => {
       "alt"
     );
   iconColor.classList.toggle("iconColorActive");
-  if (!clicked) {
-    clicked = true;
-    localStorage.setItem("btnClick", btnClick);
-  } else {
-    clicked = false;
-    localStorage.removeItem("btnClick");
-  }
+
+  newArr.push(btnClick);
+  localStorage.setItem("btnClick", JSON.stringify(newArr));
+  console.log("Updated newArr:", newArr);
 });
+
+const existingData = localStorage.getItem("btnClick");
+console.log("Existing Data from localStorage:", existingData);
+
+if (existingData) {
+  newArr = JSON.parse(existingData);
+  console.log("Parsed newArr from localStorage:", newArr);
+}
