@@ -26,29 +26,9 @@ fetch("https://fakestoreapi.com/products")
     }
   });
 
-// const addToWishlist = document.getElementById("addToWishlist");
-// const iconColor = document.getElementById("iconColor");
-// let clicked = false;
-
-// addToWishlist.addEventListener("click", () => {
-//   const btnClick =
-//     addToWishlist.parentElement.parentElement.previousElementSibling.getAttribute(
-//       "alt"
-//     );
-//   iconColor.classList.toggle("iconColorActive");
-//   if (!clicked) {
-//     clicked = true;
-//     localStorage.setItem("btnClick", btnClick);
-//   } else {
-//     clicked = false;
-//     localStorage.removeItem("btnClick");
-//   }
-// });
-
 const addToWishlist = document.getElementById("addToWishlist");
 const iconColor = document.getElementById("iconColor");
 let clicked = false;
-let newArr = [];
 
 addToWishlist.addEventListener("click", () => {
   const btnClick =
@@ -58,11 +38,9 @@ addToWishlist.addEventListener("click", () => {
   iconColor.classList.toggle("iconColorActive");
   if (!clicked) {
     clicked = true;
-    newArr.push(btnClick);
     localStorage.setItem("btnClick", btnClick);
   } else {
     clicked = false;
-    newArr.pop(btnClick);
     localStorage.removeItem("btnClick");
   }
 });
