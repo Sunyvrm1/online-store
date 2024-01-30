@@ -36,7 +36,9 @@ addToWishlist.addEventListener("click", () => {
       "alt"
     );
   iconColor.classList.toggle("iconColorActive");
-
+  if (!Array.isArray(newArr)) {
+    newArr = [];
+  }
   newArr.push(btnClick);
   localStorage.setItem("btnClick", JSON.stringify(newArr));
   console.log("Updated newArr:", newArr);
