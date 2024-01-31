@@ -10,7 +10,7 @@ fetch("https://fakestoreapi.com/products")
     const cartProduct = document.querySelector(".cartProduct");
     matchingProducts.forEach((products) => {
       cartProduct.insertAdjacentHTML(
-        "beforeend",
+        "afterbegin",
         `<div class="cart">
         <div class="cartImgNTitle">
           <img
@@ -39,23 +39,48 @@ fetch("https://fakestoreapi.com/products")
     const increase = document.querySelectorAll(".inc");
     const price = document.querySelectorAll(".cartPrice .price");
     const quantity = document.querySelectorAll(".quantity");
-    let number = 1;
-    let initialPrice = Number(price.textContent);
-    console.log(initialPrice);
+    const cart = document.querySelectorAll(".cart");
+    const bagProduct = document.querySelector(".bagProduct");
+    bagProduct.textContent = cart.length;
+    const originalPrices = Array.from(price).map((p) => Number(p.textContent));
+    console.log(originalPrices);
+
     increase.forEach((inc, i) => {
       inc.addEventListener("click", () => {
-        number++;
-        quantity[i].innerHTML = number;
-        price[i].textContent = initialPrice[i] * number;
+        let num = Number(quantity[i].innerHTML);
+        num++;
+        quantity[i].innerHTML = num;
+        price[i].textContent = (originalPrices[i] * num).toFixed(2);
       });
     });
     decrease.forEach((dec, i) => {
       dec.addEventListener("click", () => {
-        if (number > 1) {
-          number--;
-          quantity[i].textContent = number;
-          price[i].textContent = initialPrice[i] * number;
+        let num = Number(quantity[i].innerHTML);
+        if (num > 1) {
+          num--;
+          quantity[i].textContent = num;
+          price[i].textContent = (originalPrices[i] * num).toFixed(2);
         }
       });
     });
+
+    const deleteItem = document.querySelectorAll(".delete");
+    deleteItem.forEach((del, i) => {
+      del.addEventListener("click", () => {
+        const delId =
+          del.parentElement.previousElementSibling.firstElementChild.getAttribute(
+            "alt"
+          );
+        cart[i].classList.add("vanishItem");
+        removeFromLocalStorage1(delId);
+        console.log(delId);
+        bagProduct.textContent = cart.length;
+      });
+    });
   });
+
+function removeFromLocalStorage1(itemId) {
+  const existingData = JSON.parse(localStorage.getItem("btnClick1"));
+  const updatedData = existingData.filter((id) => id !== itemId);
+  localStorage.setItem("btnClick1", JSON.stringify(updatedData));
+}

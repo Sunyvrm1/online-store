@@ -42,8 +42,10 @@ fetch("https://fakestoreapi.com/products")
       });
     });
   });
-  function removeFromLocalStorage(itemId) {
-    const existingData = JSON.parse(localStorage.getItem("btnClick"));
-    const updatedData = existingData.filter((id) => id !== itemId);
-    localStorage.setItem("btnClick", JSON.stringify(updatedData));
-  }
+function removeFromLocalStorage(itemId) {
+  const existingData = JSON.parse(localStorage.getItem("btnClick"));
+  console.log(existingData);
+  const updatedData = existingData.filter((id) => id !== itemId);
+  console.log(updatedData);
+  localStorage.setItem("btnClick", JSON.stringify(updatedData));
+}

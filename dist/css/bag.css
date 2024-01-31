@@ -74,6 +74,8 @@ section {
   color: #111;
   font-weight: 600;
   align-items: center;
+  width: 85px;
+  justify-content: center;
 }
 .cartQuantity button {
   background: none;
@@ -91,4 +93,23 @@ section {
 }
 .delete i {
   cursor: pointer;
+}
+.vanishItem{
+  display: none;
+}
+.total{
+  margin-top: 20px;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.titlePara{
+  color: #777;
+  font-size: 12px;
+  font-weight: 600;
+}
+.subtitlePara{
+  font-weight: 600;
 }
