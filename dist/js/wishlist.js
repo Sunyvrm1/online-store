@@ -29,15 +29,21 @@ fetch("https://fakestoreapi.com/products")
     console.log(matchingProducts);
 
     const deleteItem = document.querySelectorAll(".deleteProd");
-    deleteItem.forEach((del) => {
+    const wishlist = document.querySelectorAll(".wishlist");
+    deleteItem.forEach((del, i) => {
       del.addEventListener("click", () => {
         const delId =
           del.parentElement.previousElementSibling.firstElementChild.getAttribute(
             "alt"
           );
+        wishlist[i].classList.add("vanishItem");
+        removeFromLocalStorage(delId);
         console.log(delId);
       });
     });
   });
-
-  const aaa=document.querySelector(".deleteProd");
+  function removeFromLocalStorage(itemId) {
+    const existingData = JSON.parse(localStorage.getItem("btnClick"));
+    const updatedData = existingData.filter((id) => id !== itemId);
+    localStorage.setItem("btnClick", JSON.stringify(updatedData));
+  }
