@@ -93,6 +93,22 @@
         background: transparent;
         cursor: pointer;
       }
+      .bagProduct{
+        background-color: #0930ad;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 600;
+        position: absolute;
+        top: 25px;
+        right: 40px;
+        z-index: 5;
+      }
       @media (max-width: 1024px) {
         .header {
           padding: 20px;
@@ -130,6 +146,9 @@
         nav ul {
           flex-direction: column;
           gap: 20px;
+        }
+        .bagProduct{
+          right: 13px;
         }
       }
       @media (max-width: 600px) {
@@ -186,7 +205,8 @@
         </div>
         <a href="/profile.html"><i class="fa-solid fa-user"></i></a>
         <a href="/wishlist.html"><i class="fa-solid fa-heart"></i></a>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="/bag.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <p class="bagProduct">2</p>
       </div>
     </div>
 
