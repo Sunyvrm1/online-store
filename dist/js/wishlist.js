@@ -39,3 +39,5 @@ fetch("https://fakestoreapi.com/products")
       });
     });
   });
+
+  const aaa=document.querySelector(".deleteProd");
