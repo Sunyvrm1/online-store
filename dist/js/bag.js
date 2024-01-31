@@ -1,29 +1,6 @@
 const storeId1 = JSON.parse(localStorage.getItem("btnClick1"));
 console.log(storeId1);
 
-const dec = document.querySelectorAll(".dec");
-const inc = document.querySelectorAll(".inc");
-const price = document.querySelectorAll(".cartPrice .price");
-const quantity = document.querySelectorAll(".quantity");
-let number = 1;
-let initialPrice = Number(price.textContent);
-inc.forEach((inc) => {
-    inc.addEventListener("click", () => {
-      number++;
-      quantity[i].innerHTML = number;
-      price[i].textContent = initialPrice[i] * number;
-    });
-})
-dec.forEach((dec) => {
-    dec.addEventListener("click", () => {
-      if (number > 1) {
-        number--;
-        quantity.textContent = number;
-        price.innerHTML = initialPrice * number;
-      }
-    });
-})
-
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((data) => {
@@ -57,5 +34,28 @@ fetch("https://fakestoreapi.com/products")
         </div>
       </div>`
       );
+    });
+    const decrease = document.querySelectorAll(".dec");
+    const increase = document.querySelectorAll(".inc");
+    const price = document.querySelectorAll(".cartPrice .price");
+    const quantity = document.querySelectorAll(".quantity");
+    let number = 1;
+    let initialPrice = Number(price.textContent);
+    console.log(initialPrice);
+    increase.forEach((inc, i) => {
+      inc.addEventListener("click", () => {
+        number++;
+        quantity[i].innerHTML = number;
+        price[i].textContent = initialPrice[i] * number;
+      });
+    });
+    decrease.forEach((dec, i) => {
+      dec.addEventListener("click", () => {
+        if (number > 1) {
+          number--;
+          quantity[i].textContent = number;
+          price[i].textContent = initialPrice[i] * number;
+        }
+      });
     });
   });
