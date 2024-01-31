@@ -31,3 +31,59 @@ section {
   border: 1px solid #ccc;
   padding: 30px;
 }
+.cartProduct{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cart{
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.cart img{
+  width: 50px;
+}
+.cartImgNTitle{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.cartTitle{
+  font-weight: 600;
+}
+.cartPrice{
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #777;
+}
+.cartQuantity{
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  padding: 8px 10px;
+  background-color: #ccc;
+  align-self: center;
+  color: #111;
+  font-weight: 600;
+  align-items: center;
+}
+.cartQuantity button{
+  background: none;
+  border: none;
+  font-size: 10px;
+  color: #2a55e5;
+  font-weight: 600;
+  cursor: pointer;
+}
+.deleteItem{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #2a55e5;
+}
+.delete i{
+  cursor: pointer;
+}
