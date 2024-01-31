@@ -26,6 +26,8 @@ fetch("https://fakestoreapi.com/products")
     }
   });
 
+  //wishlist
+
 const addToWishlist = document.getElementById("addToWishlist");
 const iconColor = document.getElementById("iconColor");
 let newArr = [];
@@ -50,4 +52,30 @@ console.log("Existing Data from localStorage:", existingData);
 if (existingData) {
   newArr = JSON.parse(existingData);
   console.log("Parsed newArr from localStorage:", newArr);
+}
+
+//add to cart
+
+const addToBag = document.getElementById("addToBag");
+let newArr2 = [];
+addToBag.addEventListener("click", () => {
+  addToBag.innerHTML = `MOVE TO BAG<i class="fa-solid fa-arrow-right"></i>`;
+  const btnClick1 =
+  addToBag.parentElement.parentElement.previousElementSibling.getAttribute(
+      "alt"
+    );
+    if (!Array.isArray(newArr2)) {
+      newArr2 = [];
+    }
+    newArr2.push(btnClick1);
+    localStorage.setItem("btnClick1", JSON.stringify(newArr2));
+    console.log(btnClick1);
+})
+
+const existingData1 = localStorage.getItem("btnClick1");
+console.log("Existing Data from localStorage:", existingData1);
+
+if (existingData1) {
+  newArr2 = JSON.parse(existingData1);
+  console.log("Parsed newArr from localStorage:", newArr2);
 }
