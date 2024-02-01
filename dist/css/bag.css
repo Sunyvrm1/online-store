@@ -94,22 +94,38 @@ section {
 .delete i {
   cursor: pointer;
 }
-.vanishItem{
+.vanishItem {
   display: none;
 }
-.total{
+.total {
   margin-top: 20px;
 }
-.flex{
+.flex {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
 }
-.titlePara{
+.titlePara {
   color: #777;
   font-size: 12px;
   font-weight: 600;
 }
-.subtitlePara{
+.subtitlePara {
   font-weight: 600;
+}
+.placeOrder {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 600;
+  border: none;
+  background-color: #2a55e5;
+  color: #fff;
+}
+.placeOrder:hover{
+  background-color: #446ae7;
 }

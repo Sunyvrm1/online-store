@@ -45,14 +45,23 @@ fetch("https://fakestoreapi.com/products")
     const originalPrices = Array.from(price).map((p) => Number(p.textContent));
     console.log(originalPrices);
 
+    let initialSum = calculateTotalPrice(originalPrices);
+    updateTotalAndGrandTotal(initialSum);
+
     increase.forEach((inc, i) => {
       inc.addEventListener("click", () => {
         let num = Number(quantity[i].innerHTML);
         num++;
         quantity[i].innerHTML = num;
         price[i].textContent = (originalPrices[i] * num).toFixed(2);
+        const newPrices = Array.from(price).map((p) => Number(p.textContent));
+        console.log(newPrices);
+        let newSum = calculateTotalPrice(newPrices);
+        console.log(newSum);
+        updateTotalAndGrandTotal(newSum);
       });
     });
+
     decrease.forEach((dec, i) => {
       dec.addEventListener("click", () => {
         let num = Number(quantity[i].innerHTML);
@@ -60,9 +69,32 @@ fetch("https://fakestoreapi.com/products")
           num--;
           quantity[i].textContent = num;
           price[i].textContent = (originalPrices[i] * num).toFixed(2);
+          const newPrices = Array.from(price).map((p) => Number(p.textContent));
+          console.log(newPrices);
+          let newSum = calculateTotalPrice(newPrices);
+          updateTotalAndGrandTotal(newSum);
         }
       });
     });
+
+    function calculateTotalPrice(prices) {
+      let sum = 0;
+
+      for (let i = 0; i < prices.length; i++) {
+        sum += prices[i];
+      }
+
+      return sum;
+    }
+
+    function updateTotalAndGrandTotal(newSum) {
+      const totalPrice = document.querySelector(".totalPrice");
+      const grandTotalPrice = document.querySelector(".grandTotalPrice");
+
+      totalPrice.innerHTML = `$${newSum.toFixed(2)}`;
+      const newTotalPrice = totalPrice.innerHTML.slice(1);
+      grandTotalPrice.innerHTML = `$${(Number(newTotalPrice) + 20).toFixed(2)}`;
+    }
 
     const deleteItem = document.querySelectorAll(".delete");
     deleteItem.forEach((del, i) => {
@@ -72,6 +104,7 @@ fetch("https://fakestoreapi.com/products")
             "alt"
           );
         cart[i].classList.add("vanishItem");
+        window.location.href = "bag.html";
         removeFromLocalStorage1(delId);
         console.log(delId);
         bagProduct.textContent = cart.length;
@@ -84,3 +117,5 @@ function removeFromLocalStorage1(itemId) {
   const updatedData = existingData.filter((id) => id !== itemId);
   localStorage.setItem("btnClick1", JSON.stringify(updatedData));
 }
+
+const placeOrder = document.querySelector(".placeOrder");
