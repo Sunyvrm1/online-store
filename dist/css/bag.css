@@ -206,15 +206,12 @@ label {
 }
 
 @media (max-width: 960px) {
-  section {
-    padding: 0 20px 40px 20px;
-  }
-
   h1 {
     margin: 40px 20px;
   }
-
+  
   .bagCont {
+    padding: 0 20px 40px 20px;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -229,11 +226,21 @@ label {
 @media (max-width: 600px) {
   .bagCont {
     grid-template-columns: 1fr;
+    position: relative;
+    margin-bottom: 40px;
+    padding: 0 0 56px 0;
+    margin: 0 20px 40px 20px;
   }
   .bag{
     grid-row: 1/2;
   }
   .form{
     grid-row: 2/3;
+  }
+  .placeOrder{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
   }
 }
