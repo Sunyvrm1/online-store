@@ -41,9 +41,11 @@ fetch("https://fakestoreapi.com/products")
     const quantity = document.querySelectorAll(".quantity");
     const cart = document.querySelectorAll(".cart");
     const bagProduct = document.querySelector(".bagProduct");
-    bagProduct.textContent = cart.length;
+    const cartNumber = cart.length;
     const originalPrices = Array.from(price).map((p) => Number(p.textContent));
     console.log(originalPrices);
+
+    localStorage.setItem("cartNumber", cartNumber);
 
     let initialSum = calculateTotalPrice(originalPrices);
     updateTotalAndGrandTotal(initialSum);
@@ -107,7 +109,7 @@ fetch("https://fakestoreapi.com/products")
         window.location.href = "bag.html";
         removeFromLocalStorage1(delId);
         console.log(delId);
-        bagProduct.textContent = cart.length;
+        bagProduct.textContent = cartNumber;
       });
     });
   });
