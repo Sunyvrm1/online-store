@@ -230,4 +230,10 @@ label {
   .bagCont {
     grid-template-columns: 1fr;
   }
+  .bag{
+    grid-row: 1/2;
+  }
+  .form{
+    grid-row: 2/3;
+  }
 }
