@@ -1,56 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background-color: #f5f5f6;
   padding-top: 81px;
 }
+
 h1 {
   font-size: 25px;
   font-weight: 600;
   margin: 40px;
 }
+
 h2 {
   font-size: 20px;
   font-weight: 600;
 }
+
 section {
   padding: 0 40px 40px;
 }
+
 .bagCont {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
 }
+
 .form,
 .bag {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 30px;
 }
+
 .cartProduct {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .cart {
   display: flex;
   gap: 20px;
   justify-content: space-between;
 }
+
 .cart img {
   width: 50px;
 }
+
 .cartImgNTitle {
   display: flex;
   gap: 20px;
   align-items: center;
 }
+
 .cartTitle {
   font-weight: 600;
   display: -webkit-box;
@@ -58,12 +70,14 @@ section {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .cartPrice {
   font-size: 13px;
   margin-top: 5px;
   font-weight: 600;
   color: #777;
 }
+
 .cartQuantity {
   display: flex;
   gap: 15px;
@@ -77,6 +91,7 @@ section {
   width: 85px;
   justify-content: center;
 }
+
 .cartQuantity button {
   background: none;
   border: none;
@@ -85,34 +100,42 @@ section {
   font-weight: 600;
   cursor: pointer;
 }
+
 .deleteItem {
   display: flex;
   align-items: center;
   gap: 20px;
   color: #2a55e5;
 }
+
 .delete i {
   cursor: pointer;
 }
+
 .vanishItem {
   display: none;
 }
+
 .total {
   margin-top: 20px;
 }
+
 .flex {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
 }
+
 .titlePara {
   color: #777;
   font-size: 12px;
   font-weight: 600;
 }
+
 .subtitlePara {
   font-weight: 600;
 }
+
 .placeOrder {
   padding: 10px 20px;
   display: flex;
@@ -126,41 +149,50 @@ section {
   background-color: #2a55e5;
   color: #fff;
 }
-.placeOrder:hover{
+
+.placeOrder:hover {
   background-color: #446ae7;
 }
-.formTitle{
+
+.formTitle {
   font-size: 13px;
   color: #2a55e5;
   font-weight: 700;
   margin-top: 30px;
   margin-bottom: 20px;
 }
-label{
+
+label {
   font-size: 13px;
   color: #000;
   font-weight: 700;
 }
-.grid1, .grid{
+
+.grid1,
+.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-.grid1 div{
+
+.grid1 div {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.input1{
+
+.input1 {
   height: 40px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-.input2{
+
+.input2 {
   height: 20px;
 }
-.radioInput{
+
+.radioInput {
   border: 1px solid #ccc;
   padding: 15px;
   display: flex;
@@ -168,6 +200,34 @@ label{
   gap: 10px;
   border-radius: 5px;
 }
-.radioInput:last-child{
+
+.radioInput:last-child {
   margin-top: 20px;
+}
+
+@media (max-width: 960px) {
+  section {
+    padding: 0 20px 40px 20px;
+  }
+
+  h1 {
+    margin: 40px 20px;
+  }
+
+  .bagCont {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid1,
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .form, .bag {
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .bagCont {
+    grid-template-columns: 1fr;
+  }
 }
