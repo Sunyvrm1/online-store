@@ -209,7 +209,7 @@ label {
   h1 {
     margin: 40px 20px;
   }
-  
+
   .bagCont {
     padding: 0 20px 40px 20px;
     grid-template-columns: 1fr 1fr;
@@ -219,10 +219,13 @@ label {
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  .form, .bag {
+
+  .form,
+  .bag {
     padding: 20px;
   }
 }
+
 @media (max-width: 600px) {
   .bagCont {
     grid-template-columns: 1fr;
@@ -231,13 +234,16 @@ label {
     padding: 0 0 56px 0;
     margin: 0 20px 40px 20px;
   }
-  .bag{
+
+  .bag {
     grid-row: 1/2;
   }
-  .form{
+
+  .form {
     grid-row: 2/3;
   }
-  .placeOrder{
+
+  .placeOrder {
     position: absolute;
     bottom: 0;
     width: 100%;
