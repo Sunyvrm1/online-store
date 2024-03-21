@@ -69,7 +69,6 @@ setInterval(nextSlide, intervalTime);
 //     });
 //   });
 
-
 // snfusdbfhbdshbfhbgsdgdfhg dfgyd fyhdkhafjdh lasfsh dfask
 
 // fetch("https://fakestoreapi.com/products")
@@ -103,6 +102,49 @@ setInterval(nextSlide, intervalTime);
 //     });
 //   });
 
+fetch("https://fakestoreapi.com/products")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    data.map((prod) => {
+      const productCont = document.querySelector(".productCont");
+      productCont.insertAdjacentHTML(
+        "beforeend",
+        `<div class="product">
+    <div class="productImg">
+      <img src="${prod.image}" alt="${prod.id}" />
+        <div class="prodAction">
+            <button class="prodActionBtn"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="prodActionBtn"><i class="fa-solid fa-heart"></i></button>
+            <button class="prodActionBtn productOverview"><i class="fa-solid fa-eye"></i></button>
+        </div>
+    </div>
+    <p class="productTitle">${prod.title}</p>
+    <p class="productPrice">$ ${prod.price}</p>
+  </div>`
+      );
+
+      const imagesAll = document.querySelectorAll(".productImg img");
+      imagesAll.forEach((img) => {
+        img.addEventListener("click", imageClick);
+      });
+
+      const productOverview = document.querySelectorAll(".productOverview");
+      productOverview.forEach((prod) => {
+        prod.addEventListener("click", () => {
+          const quickView = document.querySelector(".quickView");
+          quickView.classList.remove("opacityHalf");
+        })
+      })
+
+      const close = document.querySelector(".close");
+      close.addEventListener("click", () => {
+        const quickView = document.querySelector(".quickView");
+        quickView.classList.add("opacityHalf");
+      })
+    });
+  });
+
 //--------------------- display data ---------------------
 
 // function displayCategoryImages(categoryArray, targetElement) {
@@ -114,25 +156,8 @@ setInterval(nextSlide, intervalTime);
 
 //--------------------- Images click event ---------------------
 
-// function imageClick(event) {
-//   const clickedId = event.target.getAttribute("alt");
-//   localStorage.setItem("clickedId", clickedId);
-//   window.location.href = "product.html";
-// }
-
-
-fetch("https://fakestoreapi.com/products")
-.then((res) => res.json())
-.then((data) => {
-console.log(data);
-  data.map((prod) => {
-    const productCont = document.querySelector(".productCont");
-    productCont.insertAdjacentHTML("beforeend", `<div class="product">
-    <div class="productImg">
-      <img src="${prod.image}" alt="" />
-    </div>
-    <p>${prod.title}</p>
-    <p>$ ${prod.price}</p>
-  </div>`)
-  })
-})
+function imageClick(event) {
+  const clickedId = event.target.getAttribute("alt");
+  localStorage.setItem("clickedId", clickedId);
+  window.location.href = "product.html";
+}
