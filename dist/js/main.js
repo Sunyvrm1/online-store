@@ -69,50 +69,70 @@ setInterval(nextSlide, intervalTime);
 //     });
 //   });
 
-fetch("https://fakestoreapi.com/products")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
 
-    // Slicing data for different categories
-    const menArray = data.slice(0, 4);
-    const womenArray = data.slice(15, 19);
-    const elecArray = data.slice(8, 12);
-    const jewelArray = data.slice(4, 8);
+// snfusdbfhbdshbfhbgsdgdfhg dfgyd fyhdkhafjdh lasfsh dfask
 
-    // Target elements for different categories
-    const categoryImages = [
-      document.querySelector(".categoryImage1"),
-      document.querySelector(".categoryImage2"),
-      document.querySelector(".categoryImage3"),
-      document.querySelector(".categoryImage4"),
-    ];
+// fetch("https://fakestoreapi.com/products")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data);
 
-    // Populating images for each category
-    displayCategoryImages(menArray, categoryImages[0]);
-    displayCategoryImages(womenArray, categoryImages[1]);
-    displayCategoryImages(elecArray, categoryImages[2]);
-    displayCategoryImages(jewelArray, categoryImages[3]);
+//     // Slicing data for different categories
+//     const menArray = data.slice(0, 4);
+//     const womenArray = data.slice(15, 19);
+//     const elecArray = data.slice(8, 12);
+//     const jewelArray = data.slice(4, 8);
 
-    const imagesAll = document.querySelectorAll(".categoryImage img");
-    imagesAll.forEach((img) => {
-      img.addEventListener("click", imageClick);
-    });
-  });
+//     // Target elements for different categories
+//     const categoryImages = [
+//       document.querySelector(".categoryImage1"),
+//       document.querySelector(".categoryImage2"),
+//       document.querySelector(".categoryImage3"),
+//       document.querySelector(".categoryImage4"),
+//     ];
+
+//     // Populating images for each category
+//     displayCategoryImages(menArray, categoryImages[0]);
+//     displayCategoryImages(womenArray, categoryImages[1]);
+//     displayCategoryImages(elecArray, categoryImages[2]);
+//     displayCategoryImages(jewelArray, categoryImages[3]);
+
+//     const imagesAll = document.querySelectorAll(".categoryImage img");
+//     imagesAll.forEach((img) => {
+//       img.addEventListener("click", imageClick);
+//     });
+//   });
 
 //--------------------- display data ---------------------
 
-function displayCategoryImages(categoryArray, targetElement) {
-  categoryArray.forEach((item) => {
-    const html = `<img src="${item.image}" alt="${item.id}" />`;
-    targetElement.insertAdjacentHTML("afterbegin", html);
-  });
-}
+// function displayCategoryImages(categoryArray, targetElement) {
+//   categoryArray.forEach((item) => {
+//     const html = `<img src="${item.image}" alt="${item.id}" />`;
+//     targetElement.insertAdjacentHTML("afterbegin", html);
+//   });
+// }
 
 //--------------------- Images click event ---------------------
 
-function imageClick(event) {
-  const clickedId = event.target.getAttribute("alt");
-  localStorage.setItem("clickedId", clickedId);
-  window.location.href = "product.html";
-}
+// function imageClick(event) {
+//   const clickedId = event.target.getAttribute("alt");
+//   localStorage.setItem("clickedId", clickedId);
+//   window.location.href = "product.html";
+// }
+
+
+fetch("https://fakestoreapi.com/products")
+.then((res) => res.json())
+.then((data) => {
+console.log(data);
+  data.map((prod) => {
+    const productCont = document.querySelector(".productCont");
+    productCont.insertAdjacentHTML("beforeend", `<div class="product">
+    <div class="productImg">
+      <img src="${prod.image}" alt="" />
+    </div>
+    <p>${prod.title}</p>
+    <p>$ ${prod.price}</p>
+  </div>`)
+  })
+})
