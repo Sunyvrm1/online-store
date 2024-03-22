@@ -136,7 +136,21 @@ fetch("https://fakestoreapi.com/products")
           quickView.classList.remove("opacityHalf");
           document.querySelector("body").style.overflow = "hidden";
           const quickViewId =  e.target.id;
-          
+          const quickViewMatchId = data.find((suny) => suny.id.toString() === quickViewId);
+          console.log(quickViewMatchId);
+          if(quickViewMatchId){
+            const quickViewProdImage = document.querySelector(".quickViewProdImage");
+            const quickViewProdTitle = document.querySelector(".quickViewProdTitle");
+            const quickViewProdCat = document.querySelector(".quickViewProdCat");
+            const quickViewProdDes = document.querySelector(".quickViewProdDes");
+            const quickViewProdPice = document.querySelector(".quickViewProdPice");
+
+            quickViewProdImage.src = quickViewMatchId.image;
+            quickViewProdTitle.textContent = quickViewMatchId.title;
+            quickViewProdCat.textContent = quickViewMatchId.category;
+            quickViewProdDes.textContent = quickViewMatchId.description;
+            quickViewProdPice.textContent = "$" + quickViewMatchId.price;
+          }
         })
       })
 
