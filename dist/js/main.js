@@ -116,7 +116,7 @@ fetch("https://fakestoreapi.com/products")
         <div class="prodAction">
             <button class="prodActionBtn"><i class="fa-solid fa-cart-shopping"></i></button>
             <button class="prodActionBtn"><i class="fa-solid fa-heart"></i></button>
-            <button class="prodActionBtn productOverview"><i class="fa-solid fa-eye"></i></button>
+            <button class="prodActionBtn productOverview" id="${prod.id}"><i class="fa-solid fa-eye" id="${prod.id}"></i></button>
         </div>
     </div>
     <p class="productTitle">${prod.title}</p>
@@ -128,12 +128,15 @@ fetch("https://fakestoreapi.com/products")
       imagesAll.forEach((img) => {
         img.addEventListener("click", imageClick);
       });
-
-      const productOverview = document.querySelectorAll(".productOverview");
+    });
+    const productOverview = document.querySelectorAll(".productOverview");
       productOverview.forEach((prod) => {
-        prod.addEventListener("click", () => {
+        prod.addEventListener("click", (e) => {
           const quickView = document.querySelector(".quickView");
           quickView.classList.remove("opacityHalf");
+          document.querySelector("body").style.overflow = "hidden";
+          const quickViewId =  e.target.id;
+          
         })
       })
 
@@ -141,8 +144,8 @@ fetch("https://fakestoreapi.com/products")
       close.addEventListener("click", () => {
         const quickView = document.querySelector(".quickView");
         quickView.classList.add("opacityHalf");
+        document.querySelector("body").style.overflow = "scroll";
       })
-    });
   });
 
 //--------------------- display data ---------------------
